@@ -3,12 +3,11 @@ package com.reliaquest.api.controller;
 import com.reliaquest.api.model.Employee;
 import com.reliaquest.api.request.EmployeeCreateRequest;
 import com.reliaquest.api.service.EmployeeService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 /**
  * Controller class that provides definition to all required endpoints

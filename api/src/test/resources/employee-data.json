@@ -1,0 +1,11 @@
+{
+  "data": {
+    "id": "7e44d58c-730e-404a-841e-44bcc9dd87bd",
+    "employee_name": "Scott Farrell",
+    "employee_salary": 89277,
+    "employee_age": 27,
+    "employee_title": "Corporate Sales Agent",
+    "employee_email": "vagram@company.com"
+  },
+  "status": "Successfully processed request."
+}

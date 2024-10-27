@@ -9,12 +9,11 @@ import com.reliaquest.api.model.Employee;
 import com.reliaquest.api.model.Response;
 import com.reliaquest.api.request.EmployeeCreateRequest;
 import com.reliaquest.api.util.EmployeeProcessor;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Slf4j
 @Service
@@ -36,10 +35,9 @@ public class EmployeeService implements IEmployeeService {
      */
     @Override
     public List<Employee> getAllEmployees() {
-        log.info("Fetching All employees from service API");
+        log.info("Fetching All employees from server API");
         ResponseEntity<JsonNode> responseEntity = apiService.get(Constants.REST_EMPLOYEE_URI);
-        return processResponse(responseEntity, new TypeReference<List<Employee>>() {
-        });
+        return processResponse(responseEntity, new TypeReference<List<Employee>>() {});
     }
 
     /**
@@ -63,9 +61,9 @@ public class EmployeeService implements IEmployeeService {
      */
     @Override
     public Employee getEmployeeById(String id) {
+        log.info("Fetching Employee with given ID: {}", id);
         ResponseEntity<JsonNode> responseEntity = apiService.get(Constants.REST_EMPLOYEE_URI + "/" + id);
-        return processResponse(responseEntity, new TypeReference<>() {
-        });
+        return processResponse(responseEntity, new TypeReference<>() {});
     }
 
     /**
@@ -99,9 +97,9 @@ public class EmployeeService implements IEmployeeService {
      */
     @Override
     public Employee createEmployee(EmployeeCreateRequest employeeRequest) {
+        log.info("Creating employee with provided parameters: {}", employeeRequest);
         ResponseEntity<JsonNode> responseEntity = apiService.post(Constants.REST_EMPLOYEE_URI, employeeRequest);
-        return processResponse(responseEntity, new TypeReference<>() {
-        });
+        return processResponse(responseEntity, new TypeReference<>() {});
     }
 
     /**
@@ -114,6 +112,8 @@ public class EmployeeService implements IEmployeeService {
     public String deleteEmployeeById(String id) {
         Employee employee = getEmployeeById(id);
         String employeeName = employee.getName();
+
+        log.info("Deleting employee record with given ID: {}", id);
         apiService.delete(Constants.REST_EMPLOYEE_URI, employeeName);
         return employeeName;
     }

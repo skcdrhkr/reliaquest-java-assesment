@@ -9,5 +9,4 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record Response(JsonNode data, String status, String error) {
-}
+public record Response(JsonNode data, String status, String error) {}

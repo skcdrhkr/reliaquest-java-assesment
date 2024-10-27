@@ -2,7 +2,6 @@ package com.reliaquest.api.service;
 
 import com.reliaquest.api.model.Employee;
 import com.reliaquest.api.request.EmployeeCreateRequest;
-
 import java.util.List;
 
 public interface IEmployeeService {

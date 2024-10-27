@@ -22,5 +22,4 @@ public class ErrorResponse {
 
     @JsonProperty("status")
     private String status;
-
 }

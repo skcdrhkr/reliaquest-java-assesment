@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-
 /**
  * Service class to handle interaction with Server API
  */
@@ -43,6 +42,7 @@ public class ApiService {
      */
     public ResponseEntity<JsonNode> delete(String endpointUri, String name) {
         HttpEntity<EmployeeDeleteRequest> employeeDeleteRequest = new HttpEntity<>(new EmployeeDeleteRequest(name));
-        return restTemplate.exchange(apiBaseUri + endpointUri, HttpMethod.DELETE, employeeDeleteRequest, JsonNode.class);
+        return restTemplate.exchange(
+                apiBaseUri + endpointUri, HttpMethod.DELETE, employeeDeleteRequest, JsonNode.class);
     }
 }
